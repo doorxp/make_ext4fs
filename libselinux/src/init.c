@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <dlfcn.h>
 
-#ifdef DARWIN
+#if defined(__APPLE__) || defined(DARWIN)
 #include <sys/param.h>
 #include <sys/mount.h>
 #else

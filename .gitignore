@@ -1,0 +1,4 @@
+*.o
+.vscode
+*.a
+make_ext4fs

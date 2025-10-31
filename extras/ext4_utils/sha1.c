@@ -123,9 +123,7 @@ do_R4(u_int32_t *a, u_int32_t *b, u_int32_t *c, u_int32_t *d, u_int32_t *e, CHAR
 /*
  * Hash a single 512-bit block. This is the core of the algorithm.
  */
-void SHA1Transform(state, buffer)
-    u_int32_t state[5];
-    const u_char buffer[64];
+void SHA1Transform(u_int32_t state[5], const u_char buffer[64])
 {
     u_int32_t a, b, c, d, e;
     CHAR64LONG16 *block;
@@ -195,8 +193,7 @@ void SHA1Transform(state, buffer)
 /*
  * SHA1Init - Initialize new context
  */
-void SHA1Init(context)
-    SHA1_CTX *context;
+void SHA1Init(SHA1_CTX *context)
 {
 
     assert(context != 0);
@@ -214,10 +211,7 @@ void SHA1Init(context)
 /*
  * Run your data through this.
  */
-void SHA1Update(context, data, len)
-    SHA1_CTX *context;
-    const u_char *data;
-    u_int len;
+void SHA1Update(SHA1_CTX *context, const u_char *data,u_int len)
 {
     u_int i, j;
 
@@ -244,9 +238,7 @@ void SHA1Update(context, data, len)
 /*
  * Add padding and return the message digest.
  */
-void SHA1Final(digest, context)
-    u_char digest[20];
-    SHA1_CTX* context;
+void SHA1Final(u_char digest[20], SHA1_CTX* context)
 {
     u_int i;
     u_char finalcount[8];
